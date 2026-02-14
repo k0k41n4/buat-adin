@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Adin ❤️</title>
+</head>
+
+<body>
+    <audio id="mySong" src="./lagu.mp3" loop></audio>
+    <style>
+        :root {
+            --bg-color: #000;
+            /* Hitam biar estetik atau ganti #fff0f3 kalo mau pink */
+            --text-color: #ff4d6d;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            /* Pake font sans-serif biar modern */
+            background-color: var(--bg-color);
+        }
+
+        /* Layer Opening */
+        #opening {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            z-index: 99;
+            transition: opacity 1s ease, visibility 1s;
+        }
+
+        .btn-surprise {
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            background: var(--text-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+        }
+
+        /* Main Content */
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .screen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Tetap di tengah secara vertikal */
+            align-items: flex-start;
+            /* RATA KIRI */
+            padding-left: 10%;
+            /* Kasih jarak dari kiri */
+            box-sizing: border-box;
+        }
+
+        .big-text {
+            font-size: 5rem;
+            /* UKURAN GEDE BANGET */
+            line-height: 0.9;
+            font-weight: 900;
+            color: var(--text-color);
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .sub-text {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Animasi Muncul */
+        .fade-in {
+            opacity: 0;
+            transform: translateX(-50px);
+            /* Muncul dari kiri */
+            transition: all 1s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .wa-reply {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Layer Transisi */
+        #transition-layer {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s ease;
+        }
+
+        #transition-layer.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #transition-text {
+            color: white;
+            font-size: 2rem;
+            font-style: italic;
+            letter-spacing: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Biar tombol opening ilang dengan gaya zoom out */
+        #opening.zoom-out {
+            transform: scale(3);
+            opacity: 0;
+        }
+
+        .hidden-layer {
+            display: none;
+        }
+    </style>
+
+    <div id="opening">
+        <button class="btn-surprise" onclick="prosesBuka()">Klik Ini, Din. ❤️</button>
+    </div>
+
+
+    <div id="transition-layer" class="hidden-layer">
+        <h1 id="transition-text">Preparing something...</h1>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <section class="screen">
+            <h1 class="big-text fade-in">Happy<br>2 Months,<br>Adin.</h1>
+            <p class="sub-text fade-in">16 Desember 2025 - 16 Februari 2026</p>
+        </section>
+
+        <section class="screen">
+            <h1 class="big-text fade-in">Gak Kerasa<br>Udah 2 Bulan<br>Sama Kamu Sayang ❤</h1>
+            <p class="sub-text fade-in">Scroll terus...</p>
+        </section>
+
+        <section class="screen">
+            <h1 class="big-text fade-in">Banyak cerita yang udah kita laluin<br>Sayang ❤</h1>
+            <p class="sub-text fade-in">Scroll terus...</p>
+        </section>
+
+        <section class="screen">
+            <h1 class="big-text fade-in">Akhirnya kita terus tumbuh dan berkembang ga diem di tempat</h1>
+            <p class="sub-text fade-in">Scroll terus...</p>
+        </section>
+
+        <section class="screen">
+            <h1 class="big-text fade-in">Tiap hari ada aja kejadian unik <br> udah kek rollercoaster tau ga</h1>
+            <p class="sub-text fade-in">Scroll terus...</p>
+        </section>
+
+        <section class="screen">
+            <h1 class="big-text fade-in">Terima kasih udah nerima aku apa adanya ya sayangku Adin❤</h1>
+            <p class="sub-text fade-in">Scroll terus...</p>
+        </section>
+
+        <section class="screen">
+            <h1 class="big-text fade-in">I Love You<br>More Than<br>Before <br>Sayangku <br>NI MADE ADIN GALVANI ❤</h1>
+            <p class="sub-text fade-in">Wkwk, seriusan.</p>
+            <button class="wa-reply fade-in" onclick="balasWA()">Tetep Sayang Sama Aku ya ❤️</button>
+        </section>
+    </div>
+
+    <script>
+        function prosesBuka() {
+            const opening = document.getElementById('opening');
+            const transLayer = document.getElementById('transition-layer');
+            const transText = document.getElementById('transition-text');
+            const main = document.getElementById('main-content');
+            const song = document.getElementById('mySong'); // Ambil audio
+
+            // --- BAGIAN LAGU ---
+            song.play().catch(error => {
+                console.log("Autoplay dicegah browser, tapi harusnya jalan karena diklik");
+            });
+
+            // 1. Tombol Menghilang (Zoom Out)
+            opening.classList.add('zoom-out');
+
+            setTimeout(() => {
+                opening.style.display = 'none';
+
+                // 2. Munculin Layer Transisi
+                transLayer.classList.remove('hidden-layer');
+                setTimeout(() => transLayer.classList.add('active'), 10);
+
+                // 3. Ganti-ganti teks biar seru
+                setTimeout(() => { transText.innerText = "Are you ready?"; }, 1000);
+                setTimeout(() => { transText.innerText = "Here we go! ❤️"; }, 2000);
+
+                // 4. Buka Konten Utama
+                setTimeout(() => {
+                    transLayer.classList.remove('active');
+                    setTimeout(() => {
+                        transLayer.style.display = 'none';
+                        main.classList.remove('hidden');
+                        main.style.opacity = '1';
+                        startObserver(); // Jalankan scroll animation
+                    }, 800);
+                }, 3500);
+
+            }, 800);
+        }
+
+        // Fungsi startObserver dan balasWA tetep sama kayak kode lo
+        function startObserver() {
+            const faders = document.querySelectorAll('.fade-in');
+            const options = { threshold: 0.3 };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, options);
+
+            faders.forEach(fader => observer.observe(fader));
+        }
+
+        function balasWA() {
+            const text = encodeURIComponent("Happy 2 months too! aku sayang kamu juga sayangkuu ❤️");
+            window.location.href = `https://wa.me/089670202495?text=${text}`;
+        }
+    </script>
+</body>
+
+</html>
